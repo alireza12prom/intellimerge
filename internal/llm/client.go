@@ -1,9 +1,16 @@
 package llm
 
-type Client struct{}
+import "github.com/alireza12prom/intellimerge/internal/llm/providers"
 
-func (c *Client) Review(prompt string) {
-}
+func NewClient(provider string, apiKey string) Provider {
+	var p Provider
 
-func (c *Client) Summarize(prompt string) {
+	switch provider {
+	case "openai":
+		p = providers.NewOpenAIProvider(apiKey, "gpt-4o")
+	default:
+		p = providers.NewOpenAIProvider(apiKey, "gpt-4o")
+	}
+
+	return p
 }
