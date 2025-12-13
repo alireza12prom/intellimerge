@@ -56,7 +56,7 @@ func (h *Handler) HandleWebhook(w http.ResponseWriter, r *http.Request) {
 		if strings.HasPrefix(note, "/summary") {
 			gitlabClient := gitlab.NewClient(h.config.GitLabURL, h.config.GitLabToken)
 			jiraClient := jira.NewClient(h.config.JiraURL, h.config.JiraEmail, h.config.JiraAPIToken)
-			llmClient := llm.NewClient(h.config.LLMProvider, h.config.LLMAPIKey)
+			llmClient := llm.NewClient("openai", h.config.LLMAPIKey)
 			summaryCmd := commands.NewSummaryCommand(&webhook, gitlabClient, jiraClient, llmClient)
 
 			go func() {

@@ -16,10 +16,7 @@ type Config struct {
 	JiraAPIToken string `env:"JIRA_API_TOKEN" envRequired:"true"`
 
 	// LLM
-	LLMProvider string `env:"LLM_PROVIDER"     envDefault:"openai"` // openai, anthropic, etc.
-	LLMAPIKey   string `env:"LLM_API_KEY"     envRequired:"true"`
-	LLMBaseURL  string `env:"LLM_BASE_URL"    envDefault:""`      // Optional, for custom endpoints
-	LLMModel    string `env:"LLM_MODEL"       envDefault:"gpt-4"` // Model name
+	LLMAPIKey string `env:"LLM_API_KEY"     envRequired:"true"`
 
 	// Logging
 	LogLevel string `env:"LOG_LEVEL"        envDefault:"info"`

@@ -14,14 +14,14 @@ type SummaryCommand struct {
 	webhook      *models.GitLabCommentEvent
 	gitlabClient *gitlab.Client
 	jiraClient   *jira.Client
-	llmClient    *llm.Client
+	llmClient    llm.Provider
 }
 
 func NewSummaryCommand(
 	webhook *models.GitLabCommentEvent,
 	gitlabClient *gitlab.Client,
 	jiraClient *jira.Client,
-	llmClient *llm.Client,
+	llmClient llm.Provider,
 ) *SummaryCommand {
 	return &SummaryCommand{
 		webhook:      webhook,
